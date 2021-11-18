@@ -1,0 +1,21 @@
+<h1>listado alumnos</h1>
+<ul>
+   
+    <li *ngFor="let alumno of alumnos;
+    let i=index; let primero=first; let ultimo=last;"
+    [ngClass]="{azul:primero, verde:ultimo}">
+    {{i+1}} - {{alumno}}
+    </li>
+   
+    <button (click)="eliminar()">Eliminar</button>
+    <h2 *ngIf="aprobados.length>0; else vacio">Aprobados</h2>
+    <ul>
+        <li *ngFor="let aprobado of aprobados;">
+            {{aprobado}}
+        </li>
+    </ul>
+    <ng-template #vacio>
+        <h2>Eres muy malo, todavía no has aprobado a nadie.</h2>
+    </ng-template>
+
+</ul>

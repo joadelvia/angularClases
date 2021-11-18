@@ -1,0 +1,30 @@
+<h1>Brawl Stars</h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <h2>Personajes:</h2>
+        <hr>
+        <ul>
+            <li>Shelly - 3600</li>
+            <li>Nita - 3800</li>
+            <li>Colt - 2800</li>
+        </ul>
+    </div>
+    <div class="col">
+        <h2>Añadir:</h2>
+        <hr>
+        <form (ngSubmit)="agregar()">
+            <input 
+            type="text"
+            name="nombre"
+            placeholder="Nombre"
+            [(ngModel)] ="nuevo.nombre"
+
+            >
+            <!-- [value] = "nuevo.nombre"
+            (input) = "cambiarNombre($event)" -->
+            <input type="number" placeholder="Salud">
+            <button type="submit">Añadir</button>
+        </form>
+    </div>
+</div>
