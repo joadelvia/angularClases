@@ -2,13 +2,7 @@
 <hr>
 <div class="row">
     <div class="col">
-        <h2>Personajes:</h2>
-        <hr>
-        <ul>
-            <li>Shelly - 3600</li>
-            <li>Nita - 3800</li>
-            <li>Colt - 2800</li>
-        </ul>
+        <app-personajes [personajes]="personajes"></app-personajes>
     </div>
     <div class="col">
         <h2>Añadir:</h2>
@@ -23,7 +17,12 @@
             >
             <!-- [value] = "nuevo.nombre"
             (input) = "cambiarNombre($event)" -->
-            <input type="number" placeholder="Salud">
+            <input 
+            type="number" 
+            placeholder="Salud"
+            name="salud"
+            [(ngModel)] = "nuevo.salud"
+            >
             <button type="submit">Añadir</button>
         </form>
     </div>

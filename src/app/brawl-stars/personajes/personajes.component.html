@@ -1,0 +1,7 @@
+<h2>Personajes:</h2>
+<hr>
+<ul>
+    <li *ngFor="let personaje of personajes">
+        {{personaje.nombre}} - {{personaje.salud| number}}
+    </li>
+</ul>
