@@ -27,23 +27,15 @@ export class MainPageComponent implements OnInit {
     }
   ]
   nuevo: Personaje={
-    nombre: "Bull",
-    salud: 5200
+    nombre: "Toro",
+    salud: 5300
   }
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  agregar(){
-    
-    this.personajes.push(this.nuevo);
-    this.nuevo = {
-      nombre: "",
-      salud: 0
-    }
-    console.log(this.nuevo.nombre);
-  }
+  
   cambiarNombre(event:any){
     this.nuevo.nombre=event.target.value;
     console.log(this.nuevo.nombre);
