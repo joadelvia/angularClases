@@ -34,11 +34,11 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  
-  cambiarNombre(event:any){
-    this.nuevo.nombre=event.target.value;
-    console.log(this.nuevo.nombre);
+  // Creamos nuestro método agregarNuevoPersonaje que recibe un personaje a través
+  // del evento y lo añade al array personajes
+  agregarNuevoPersonaje(personaje:Personaje):void{
+    this.personajes.push(personaje);
   }
+
 
 }

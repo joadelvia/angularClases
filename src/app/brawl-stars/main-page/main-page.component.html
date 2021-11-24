@@ -4,10 +4,20 @@
     <div class="col">
         <app-personajes [personajes]="personajes"></app-personajes>
     </div>
-    <div class="col">
+    <!--
+        Recibiendo personajes como un input del padre (main-page.component) al hijo 
+        <div class="col">
         <app-agregar 
         [personajes]='personajes' 
         [nuevo]='nuevo'
+        ></app-agregar>
+    </div> -->
+    <!-- Ahora el componente hijo va a emitir un evento y aquí lo va a escuchar el padre
+    para ello eliminamos la parte del input personajes -->
+    <div class="col">
+        <app-agregar  
+        [nuevo]='nuevo'
+        (onNewCharacter)="agregarNuevoPersonaje($event)"
         ></app-agregar>
     </div>
 </div>
