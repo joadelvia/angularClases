@@ -2,7 +2,8 @@
 <hr>
 <div class="row">
     <div class="col">
-        <app-personajes [personajes]="personajes"></app-personajes>
+        <!-- <app-personajes [personajes]="personajes"></app-personajes> -->
+        <app-personajes class="hidden"></app-personajes>
     </div>
     <!--
         Recibiendo personajes como un input del padre (main-page.component) al hijo 
@@ -14,10 +15,13 @@
     </div> -->
     <!-- Ahora el componente hijo va a emitir un evento y aquí lo va a escuchar el padre
     para ello eliminamos la parte del input personajes -->
-    <div class="col">
+    <!-- <div class="col">
         <app-agregar  
         [nuevo]='nuevo'
         (onNewCharacter)="agregarNuevoPersonaje($event)"
         ></app-agregar>
+    </div> -->
+    <div class="col">
+        <app-agregar [nuevo]='nuevo'></app-agregar>
     </div>
 </div>

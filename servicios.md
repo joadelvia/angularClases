@@ -234,3 +234,79 @@ Bien ahora para obtener poder obtenerlo desde el componente personajes simplemen
 
     }
 ```
+
+Lo último que nos falta es añadir al servicio la posibilidad de añadir nuevos personajes al array personajes. Para ello deberemos crear un método dentro del servicio.
+brawl-stars.service.ts
+```typescript
+import { Injectable } from "@angular/core";
+import { Personaje } from "../interfaces/brawl-stars.interface";
+
+
+
+@Injectable() export class BrawlStarsService {
+    private _personajes: Personaje[]=
+  [
+    {
+      nombre: "Shelly",
+      salud: 3600
+    },
+    {
+      nombre: "Nita",
+      salud: 3800
+    },
+    {
+      nombre: "Colt",
+      salud: 2800
+    },
+    {
+      nombre: "Bull",
+      salud: 5200
+    }
+  ]
+
+  get personajes():Personaje[]{
+    //Podríamos devolve el array pero no lo hacemos porque se pasaría por referencia
+    //   return this.personajes;
+    return [...this._personajes];
+  }
+  
+    constructor(){
+        console.log("Servicio BrawlStars iniciado");
+    }
+
+    //Añadir un método que añade un personaje al array
+    agregarPersonaje(personaje: Personaje){
+        this._personajes.push(personaje);
+    }
+}
+```
+
+Lo último será llamar ese método desde el componente agregar. Para ello lo primero que hacemos en inyectar el servicio, añadiéndolo al constructor y después simplemente utilizamos el método creado en el servicio pasándole nuestro objeto nuevo.
+agregar.component.ts
+```typescript
+import { Component, Input } from '@angular/core';
+import { Personaje } from '../interfaces/brawl-stars.interface';
+import { BrawlStarsService } from '../services/brawl-stars.service';
+
+@Component({
+  selector: 'app-agregar',
+  templateUrl: './agregar.component.html',
+  styles: ['input{ display: block; margin: 1em;}']
+})
+export class AgregarComponent  {
+  
+  @Input() nuevo: Personaje={nombre:'', salud:0};
+
+    constructor(private bsService:BrawlStarsService) {
+    
+   }
+
+  agregar(){
+    this.bsService.agregarPersonaje(this.nuevo);
+    this.nuevo = {
+      nombre: "",
+      salud: 0
+    }
+  }
+}
+```

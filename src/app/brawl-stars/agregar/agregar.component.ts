@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Personaje } from '../interfaces/brawl-stars.interface';
+import { BrawlStarsService } from '../services/brawl-stars.service';
 
 @Component({
   selector: 'app-agregar',
@@ -14,13 +15,13 @@ export class AgregarComponent implements OnInit {
   // @Input() personajes: Personaje[] = [];
   @Input() nuevo: Personaje={nombre:'', salud:0};
 
-  // Vamos a crearnos un evento. Para ello:
-  // Creamos una propiedad de tipo EventEmitter (OJO al crearlo que sea de @angular/core
-  // ya que vscode me ofrece otro EventEmitter de stream) con el decorador @Output()
-  // En EventEmitter es necesario indicar el tipo de lo que va a "emitir"
-  @Output() onNewCharacter: EventEmitter<Personaje> = new EventEmitter();
+  // // Vamos a crearnos un evento. Para ello:
+  // // Creamos una propiedad de tipo EventEmitter (OJO al crearlo que sea de @angular/core
+  // // ya que vscode me ofrece otro EventEmitter de stream) con el decorador @Output()
+  // // En EventEmitter es necesario indicar el tipo de lo que va a "emitir"
+  // @Output() onNewCharacter: EventEmitter<Personaje> = new EventEmitter();
 
-  constructor() {
+  constructor(private bsService:BrawlStarsService) {
     
    }
 
@@ -28,11 +29,12 @@ export class AgregarComponent implements OnInit {
   }
 
   agregar(){
-    // Ya no vamos a recibir el array personajes del padre por lo que eliminamos la siguiente
-    // línea
-    //this.personajes.push(this.nuevo);
-    // Ahora que tenemos el nuevo personaje creado lo "emitimos a través del evento"
-    this.onNewCharacter.emit(this.nuevo);
+    // // Ya no vamos a recibir el array personajes del padre por lo que eliminamos la siguiente
+    // // línea
+    // //this.personajes.push(this.nuevo);
+    // // Ahora que tenemos el nuevo personaje creado lo "emitimos a través del evento"
+    // this.onNewCharacter.emit(this.nuevo);
+    this.bsService.agregarPersonaje(this.nuevo);
     this.nuevo = {
       nombre: "",
       salud: 0
