@@ -310,3 +310,6 @@ export class AgregarComponent  {
   }
 }
 ```
+
+## Ejercicio
+Crear un nuevo proyecto Angular donde vamos a intentar poner en práctica todo lo visto hasta ahora. Para ello, el proyecto deberá tener al menos un módulo en el que habrán los componentes necesarios para que tengamos al menos dos servicios diferentes donde almacenemos información y la podamos consultar y añadir nuevos objetos. Para esto último tendremos componentes que permitan mediante formularios añadir información y componentes que muestren la información. Intentar utilizar todo lo aprendido, diferentes directivas, clases y podéis tratar de "jugar" con mostrar y ocultar componentes.
